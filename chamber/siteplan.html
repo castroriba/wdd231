@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W05 Project Site Plan | Kampala Eats</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Color Scheme & Typography Definitions (Used for Plan Document) --- */
+        :root {
+            --primary-color: #D52B1E; /* Red (Headings, Accent) */
+            --secondary-color: #FFD700; /* Gold (Highlights, Borders) */
+            --background-color: #F7F7F7; /* Light Gray */
+            --text-color: #333333; /* Dark Gray */
+
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body); /* Used for body text */
+            background-color: var(--background-color); /* Used for background */
+            color: var(--text-color); /* Used for body text */
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 4px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: var(--font-heading); /* Used for main heading */
+            color: var(--primary-color); /* Used for main accent color */
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-family: var(--font-heading); /* Used for subheadings */
+            color: var(--primary-color); /* Used for primary accent color */
+            border-bottom: 2px solid var(--secondary-color); /* Used for secondary accent color */
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        .wireframes img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .wireframe-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .wireframe-container {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>W05 Project Site Plan: Kampala Eats</h1>
+        <p>A blueprint for the Individual Website Project.</p>
+    </header>
+
+    <section>
+        <h2>Site Name (Criterion 1)</h2>
+        <p><strong>Name:</strong> Kampala Eats (KLA Eats)</p>
+        <p><strong>Reason:</strong> The name is brief, memorable, and directly establishes the site's geographic focus (Kampala) and content area (food reviews), which is essential for branding and recognition.</p>
+        <p><strong>Optional Domain:</strong> <code>kampala-eats.com</code></p>
+    </section>
+
+    <section>
+        <h2>Site Purpose (Criterion 2)</h2>
+        <p>The primary purpose of **Kampala Eats** is to serve as a comprehensive, curated hub for food exploration in Kampala. It will provide **independent, detailed reviews** and **location information** for local restaurants and street food vendors, helping both residents and visitors discover high-quality dining experiences. The site's content will include:</p>
+        <ul>
+            <li>Detailed restaurant and vendor profiles (dynamic content from JSON).</li>
+            <li>Interactive map view showing locations.</li>
+            <li>A simple contact/suggestion form.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Scenarios (Target Audience) (Criterion 3)</h2>
+        <p>These questions reflect the target audience (food enthusiasts, tourists, and locals):</p>
+        <ol>
+            <li>**"I'm visiting the city center today. What are the top 3 highly-rated street food vendors that are open right now?"** (Drives content filtering, hours of operation, and rating displays.)</li>
+            <li>**"I need to find a moderately priced restaurant that serves traditional Ugandan cuisine and is within 5 kilometers of my current location."** (Drives map/location features, price filtering, and cuisine categorization.)</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Color Scheme (Criterion 4 & 5)</h2>
+        <p>The scheme uses colors inspired by the Ugandan flag and local street signs for high visibility and cultural relevance.</p>
+        <ul>
+            <li><strong>Primary (Accent):</strong> <code>#D52B1E</code> (Red). Used for headings, CTA buttons, active links, and prominent borders.</li>
+            <li><strong>Secondary (Highlight):</strong> <code>#FFD700</code> (Gold). Used for navigation hover states, section dividers, and subtle accents.</li>
+            <li><strong>Background:</strong> <code>#F7F7F7</code> (Light Gray). Used for main body background.</li>
+            <li><strong>Text:</strong> <code>#333333</code> (Dark Gray). Used for all body text for contrast.</li>
+        </ul>
+        <p><em>(Note: These colors are applied to this document's headings, background, and text via the embedded CSS.)</em></p>
+    </section>
+
+    <section>
+        <h2>Typography (Criterion 6)</h2>
+        <p>The fonts are selected for high readability and a modern, bold look.</p>
+        <ul>
+            <li><strong>Headings (`h1`, `h2`):</strong> **Oswald**. A bold, condensed sans-serif font used for maximum impact and visibility. <em>(Used for headings in this document.)</em></li>
+            <li><strong>Body Text & Navigation:</strong> **Open Sans**. A highly readable and accessible sans-serif font suitable for long-form content and UI elements. <em>(Used for body text in this document.)</em></li>
+        </ul>
+    </section>
+
+    <section class="wireframes">
+        <h2>Wireframes: Home Page Layout (Criterion 7)</h2>
+        <p>The home page will feature the latest content (reviews) and primary navigation.</p>
+        
+        <div class="wireframe-container">
+            <div>
+                <h3>Mobile View (Small Screen)</h3>
+                <img src="images/mobile-wireframe-placeholder.png" alt="Mobile Wireframe Sketch" loading="lazy">
+                <p>Layout is a single column stack: Logo/Hamburger Menu, Hero Image, Main CTA, Latest 3 Reviews (stacked), Footer.</p>
+            </div>
+            
+            <div>
+                <h3>Desktop View (Wider Viewport)</h3>
+                <img src="images/desktop-wireframe-placeholder.png" alt="Desktop Wireframe Sketch" loading="lazy">
+                <p>Layout features: Logo/Horizontal Nav, Large Hero, Main Content Area (Latest Reviews) in a two-column grid, Sidebar for Filters/Ad, Footer.</p>
+            </div>
+        </div>
+        <p class="small-note">*Note: The actual wireframe images should be sketches (hand-drawn or digital) and not placeholders. You must replace the image tags above with your actual sketches.</p>
+    </section>
+
+    </body>
+</html>
