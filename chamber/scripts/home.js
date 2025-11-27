@@ -1,10 +1,13 @@
+// scripts/home.js
+
+import { members } from '../data/members.mjs'; // <-- CORRECTED: Use import for member data
+
 // --- Configuration ---
 // !!! IMPORTANT: REPLACE "YOUR_API_KEY_HERE" WITH YOUR ACTUAL KEY !!!
 const WEATHER_API_KEY = "5588c195e6b3a730fe86594ef81462d8"; 
 const KAMPALA_LAT = 0.3476;
 const KAMPALA_LON = 32.5825;
 const FORECAST_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${KAMPALA_LAT}&lon=${KAMPALA_LON}&units=imperial&appid=${WEATHER_API_KEY}`;
-const MEMBER_DATA_URL = 'data/members.json';
 
 // --- DOM Selectors ---
 const currentTemp = document.querySelector('#current-temp');
@@ -19,12 +22,13 @@ const capitalize = (s) => s.split(' ').map(word => word.charAt(0).toUpperCase() 
 const toDayOfWeek = (timestamp) => new Date(timestamp * 1000).toLocaleDateString('en-US', { weekday: 'short' });
 
 
-// --- 1. Weather Fetch & Display ---
+// --- 1. Weather Fetch & Display (Retained fetch logic) ---
 async function getWeatherData() {
     try {
         const response = await fetch(FORECAST_URL);
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status} (Key not active or incorrect)`);
+            // Updated error message for clarity
+            throw new Error(`HTTP error! status: ${response.status} (Check API Key and URL)`);
         }
         const data = await response.json();
         
@@ -48,7 +52,6 @@ async function getWeatherData() {
             const entryDate = new Date(entry.dt * 1000);
             const day = entryDate.getDay();
 
-            // Only consider forecast entries for the next 3 days (not today)
             if (day !== today && !uniqueDays.includes(day)) {
                 uniqueDays.push(day);
                 threeDayForecast.push({
@@ -76,15 +79,12 @@ async function getWeatherData() {
     }
 }
 
-// --- 2. Spotlight Fetch & Display (Fixes Criteria 12) ---
-async function displaySpotlights() {
+// --- 2. Spotlight Display (Uses imported 'members' array) ---
+function displaySpotlights() {
     try {
-        const response = await fetch(MEMBER_DATA_URL);
-        if (!response.ok) {
-            throw new Error('Failed to fetch JSON data.');
+        if (!members || members.length === 0) {
+            throw new Error('Imported members array is empty or undefined.');
         }
-        const data = await response.json();
-        const members = data.members;
 
         // 1. Filter for Gold or Silver members
         let eligibleMembers = members.filter(member => 
@@ -97,7 +97,6 @@ async function displaySpotlights() {
 
         for (let i = 0; i < numSpotlights; i++) {
             const randomIndex = Math.floor(Math.random() * eligibleMembers.length);
-            // Splice removes the selected member so they can't be picked again
             spotlights.push(eligibleMembers.splice(randomIndex, 1)[0]); 
         }
 
@@ -115,7 +114,7 @@ async function displaySpotlights() {
 
     } catch (error) {
         console.error("Spotlight data failed to load:", error);
-        spotlightsContainer.innerHTML = '<p>Member spotlights failed to load. Check JSON syntax or file path.</p>';
+        spotlightsContainer.innerHTML = '<p>Member spotlights failed to load. Check console for details.</p>';
     }
 }
 

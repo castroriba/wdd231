@@ -1,5 +1,7 @@
-// Data source URL
-const url = 'data/members.json'; 
+// scripts/directory.js
+
+import { members } from '../data/members.mjs'; // <-- CORRECTED: Use import instead of fetch
+
 const cards = document.querySelector('#directory-cards');
 const gridButton = document.querySelector('#grid-view');
 const listButton = document.querySelector('#list-view');
@@ -17,20 +19,17 @@ const createMemberCard = (member) => {
     // Populate content
     h2.textContent = member.name;
     address.textContent = member.address;
-    // Added class for easier list styling
     address.classList.add('member-address');
     
     phone.textContent = `Phone: ${member.phone}`;
-    // Added class for easier list styling
     phone.classList.add('member-phone');
     
     website.textContent = member.website.replace(/(^\w+:|^)\/\//, ''); // Clean URL display
     website.href = member.website;
     website.target = '_blank';
-    // Added class for easier list styling
     website.classList.add('member-website');
     
-    level.textContent = member.membership_level; // Only the level name for list view simplicity
+    level.textContent = member.membership_level; 
     level.classList.add('membership-level');
 
     // Build Image attributes
@@ -51,30 +50,12 @@ const createMemberCard = (member) => {
 }
 
 // --- Display Function: Build HTML Cards ---
-const displayMembers = (members) => {
-    cards.innerHTML = ''; // Clear the message
-
-    members.forEach((member) => {
+const displayMembers = (membersArray) => {
+    cards.innerHTML = ''; 
+    membersArray.forEach((member) => {
         const card = createMemberCard(member);
         cards.appendChild(card);
     });
-}
-
-// --- Core Function: Fetch and Process Data (async/await) ---
-async function getMemberData() {
-    try {
-        const response = await fetch(url);
-        
-        if (response.ok) {
-            const data = await response.json();
-            displayMembers(data.members);
-        } else {
-            throw Error(`Network response was not ok. Status: ${response.status}`);
-        }
-    } catch (error) {
-        console.error('Error fetching or parsing data:', error);
-        cards.innerHTML = `<p class="error">Failed to load member directory. Check console/network for details.</p>`;
-    }
 }
 
 // --- View Control Logic (Grid/List Switch) ---
@@ -94,9 +75,19 @@ function setView(viewType) {
 
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Fetch data
-    getMemberData();
-    // 2. Set default view to grid (if not already set in HTML)
+    // 1. Display data directly from the imported 'members' array
+    try {
+        if (members && members.length > 0) {
+            displayMembers(members);
+        } else {
+             throw new Error("Imported members array is empty or undefined.");
+        }
+    } catch (e) {
+        console.error('Error displaying member data:', e);
+        cards.innerHTML = `<p class="error">Failed to load member directory. Check console for details.</p>`;
+    }
+    
+    // 2. Set default view to grid
     setView('grid'); 
 
     // 3. Attach listeners

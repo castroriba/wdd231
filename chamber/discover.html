@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampala Chamber - Discover Our Area</title>
+    <meta name="description" content="Discover the best sites and points of interest in the Kampala area, promoted by the Chamber of Commerce.">
+    
+    <link rel="icon" href="images/favicon.ico"> 
+    
+    <link rel="stylesheet" href="css/normalize.css"> 
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/discover.css"> 
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <img src="images/logo.webp" alt="Kampala City Chamber of Commerce Logo">
+            <span class="site-title">Kampala Chamber</span>
+        </div>
+        
+        <nav class="main-nav" aria-label="Main Navigation">
+            <a href="index.html" class="nav-link">Home</a> 
+            <a href="directory.html" class="nav-link">Directory</a>
+            <a href="join.html" class="nav-link">Join Us</a>
+            <a href="discover.html" class="nav-link active">Discover KLA</a>
+        </nav>
+        
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+    </header>
+
+    <main id="content">
+        <div class="discover-header">
+            <h2>Explore Kampala's Unique Attractions</h2>
+            
+            <p id="visitor-message" class="message-banner"></p>
+        </div>
+
+        <section class="places-grid" id="places-grid">
+            </section>
+        
+    </main>
+
+    <footer class="site-footer">
+        <p>Kampala Chamber of Commerce &copy; <span id="year"></span></p>
+        <p>
+            Contact: <a href="mailto:info@kcc.ug">info@kcc.ug</a> | Tel: <a href="tel:+256414123456">+256 414 123 456</a>
+        </p>
+        <address>P.O. Box 7010, Kampala, Uganda</address>
+        <p>Castro Oriba | WDD 231</p>
+        <p class="metadata">Last Updated: <span id="lastModified"></span></p>
+    </footer>
+
+    <script src="scripts/main.js" defer></script> 
+    <script src="scripts/discover.js" type="module" defer></script> 
+</body>
+</html>
