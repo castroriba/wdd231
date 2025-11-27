@@ -1,0 +1,59 @@
+/* --- THANKS.CSS: Styles for the Form Action Page --- */
+
+.confirmation-container {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--card-background);
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-container h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.confirmation-container p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.submitted-data-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-top: 2px solid #eee;
+    text-align: left;
+}
+
+.data-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.data-label {
+    font-weight: bold;
+    color: var(--primary-color);
+    flex-basis: 40%;
+}
+
+.data-value {
+    flex-basis: 55%;
+    text-align: right;
+    word-break: break-word; /* Handle long values */
+}
+
+/* Adjust grid for wider screens */
+@media (min-width: 500px) {
+    .submitted-data-grid {
+        padding: 0 2rem;
+    }
+}

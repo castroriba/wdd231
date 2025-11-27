@@ -1,0 +1,98 @@
+/* --- INDEX.CSS: Styles for the Home Page --- */
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 40vh; /* Adjust height for visual impact */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.45); /* Dark overlay for text readability */
+    color: var(--light-text);
+    padding: 1.5rem;
+    max-width: 80%;
+    border-radius: 8px;
+}
+
+.hero-overlay h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--light-text);
+}
+.hero-overlay p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Local Storage Info Banner */
+.info-banner {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* --- Quick Facts Grid --- */
+.quick-facts {
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.facts-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.facts-grid div {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.facts-grid h3 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.25rem;
+}
+.facts-grid p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+
+/* --- Desktop adjustments --- */
+@media (min-width: 768px) {
+    .hero-section {
+        height: 55vh;
+    }
+    .hero-overlay h1 {
+        font-size: 3rem;
+    }
+    .hero-overlay {
+        padding: 2.5rem 3.5rem;
+    }
+}

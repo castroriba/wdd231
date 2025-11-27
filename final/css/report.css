@@ -1,0 +1,81 @@
+/* --- REPORT.CSS: Styles for the Report Sighting Form Page --- */
+.form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+form fieldset {
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+form legend {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 0.5rem;
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="date"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding doesn't widen the input */
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: background-color 0.3s;
+}
+
+form button[type="submit"]:hover {
+    background-color: #00796b;
+}
+
+/* Ensure responsiveness on smaller screens */
+@media (max-width: 650px) {
+    .form-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}

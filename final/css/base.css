@@ -1,0 +1,166 @@
+/* --- BASE.CSS: Global Styles, Typography, and Layout Foundation --- */
+
+/* --- Custom Properties (Theme Colors) --- */
+:root {
+    --primary-color: #004d40; /* Deep Teal/Forest Green for Uganda's greenery */
+    --secondary-color: #ffb300; /* Amber/Gold for the savanna */
+    --accent-color: #c00; /* Deep Red for contrast/alerts */
+    --background-color: #f7f7f7; /* Light background */
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --light-text: #ffffff;
+    --status-endangered: #c00;
+    --status-vulnerable: #ffb300;
+}
+
+/* --- Global Reset & Typography --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1; /* Ensures main takes up available space, pushing footer down */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: var(--secondary-color);
+}
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.cta-button:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+/* --- Header & Navigation (W06 Requirement: Responsive Menu) --- */
+header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.logo-container img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+.site-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.main-nav {
+    display: none; /* Hidden by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Adjust based on header height */
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    z-index: 10;
+}
+.main-nav.open {
+    display: flex; /* Shown when hamburger is clicked */
+}
+.nav-link {
+    color: var(--light-text);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+.nav-link:last-child {
+    border-bottom: none;
+}
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1); /* Wayfinding */
+    font-weight: bold;
+}
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--light-text);
+    font-size: 2rem;
+    cursor: pointer;
+    display: block; /* Hamburger icon visible on mobile */
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+.site-footer a {
+    color: var(--secondary-color);
+}
+.site-footer a:hover {
+    color: var(--light-text);
+}
+.site-footer p {
+    margin: 0.25rem 0;
+}
+
+/* --- Media Queries: Desktop View (W06 Requirement: Responsive Layout) --- */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none; /* Hide hamburger */
+    }
+    header {
+        padding: 1rem 3rem;
+    }
+    .main-nav {
+        display: flex; /* Always display horizontal nav */
+        flex-direction: row;
+        position: static;
+        width: auto;
+        gap: 1rem;
+    }
+    .nav-link {
+        padding: 0.5rem 1rem;
+        border-bottom: none;
+        border-radius: 5px;
+    }
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    .nav-link.active {
+        background-color: var(--secondary-color); /* Stronger wayfinding */
+        color: var(--text-color);
+    }
+}

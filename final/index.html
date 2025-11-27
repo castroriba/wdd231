@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uganda's Wildlife Atlas - Home</title>
+    <meta name="description" content="Explore Uganda's incredible biodiversity, national parks, and conservation efforts in the Pearl of Africa.">
+    <meta name="author" content="Castro Oriba">
+    
+    <link rel="icon" href="favicon.ico"> 
+
+    <meta property="og:title" content="Uganda's Wildlife Atlas">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/wdd231/finalproject/index.html">
+    <meta property="og:image" content="https://yourusername.github.io/wdd231/finalproject/hero.webp">
+    
+    <link rel="stylesheet" href="css/base.css"> 
+    <link rel="stylesheet" href="css/index.css"> 
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.webp" alt="Wildlife Atlas Logo">
+            <span class="site-title">Uganda Wildlife Atlas</span>
+        </div>
+        
+        <nav class="main-nav" aria-label="Main Navigation">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="parks.html" class="nav-link">Parks & Species</a>
+            <a href="report.html" class="nav-link">Report Sighting</a>
+        </nav>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+    </header>
+
+    <main id="content">
+        <section class="hero-section">
+            <img src="images/hero.webp" alt="Sunset over Murchison Falls National Park" class="hero-image" loading="lazy">
+            <div class="hero-overlay">
+                <h1>Discover the Pearl of Africa's Wild Heart</h1>
+                <p>From the mighty Nile to the majestic gorillas, explore Uganda's biodiversity.</p>
+                
+                <p id="visit-message" class="info-banner">Loading your wildlife log...</p> 
+                
+                <a href="parks.html" class="cta-button">View Species Catalog</a>
+            </div>
+        </section>
+
+        <section class="quick-facts">
+            <h2>Uganda by the Numbers</h2>
+            <div class="facts-grid">
+                <div><h3>10+</h3><p>National Parks</p></div>
+                <div><h3>50%</h3><p>Of the world's Gorillas</p></div>
+                <div><h3>1063</h3><p>Mountain Gorillas (Total Est.)</p></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Uganda Wildlife Atlas &copy; <span id="year"></span> | <a href="attributions.html">Sources</a></p>
+        <p>Video Demo: <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">W06 Project Video</a></p>
+        <p>Castro Oriba | WDD 231</p>
+        <p class="metadata">Last Modified: <span id="lastModified"></span></p>
+    </footer>
+
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/index.js" type="module" defer></script>
+</body>
+</html>

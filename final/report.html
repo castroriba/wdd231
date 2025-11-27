@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Sighting - Uganda Wildlife Atlas</title>
+    <meta name="description" content="Use this form to report your wildlife sightings and contribute to the Atlas log.">
+    <meta name="author" content="Castro Oriba">
+    
+    <link rel="icon" href="favicon.ico"> 
+    
+    <link rel="stylesheet" href="css/base.css"> 
+    <link rel="stylesheet" href="css/report.css"> 
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.webp" alt="Wildlife Atlas Logo">
+            <span class="site-title">Uganda Wildlife Atlas</span>
+        </div>
+        
+        <nav class="main-nav" aria-label="Main Navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="parks.html" class="nav-link">Parks & Species</a>
+            <a href="report.html" class="nav-link active">Report Sighting</a>
+        </nav>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+    </header>
+
+    <main id="content">
+        <section class="form-container">
+            <h1>Log a Wildlife Sighting</h1>
+            <p>Help us track Uganda's incredible fauna by submitting your observations.</p>
+
+            <form id="sighting-form" method="get" action="thanks.html">
+                <fieldset>
+                    <legend>Your Details</legend>
+                    <label for="fname">Full Name*</label>
+                    <input type="text" id="fname" name="fullName" required>
+                    
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email" required placeholder="name@domain.com">
+                    
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+256 700 123456">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Sighting Details</legend>
+                    
+                    <label for="species">Species Seen*</label>
+                    <select id="species" name="speciesName" required>
+                        <option value="" disabled selected>Select Species</option>
+                        <option value="Mountain Gorilla">Mountain Gorilla</option>
+                        <option value="Shoebill Stork">Shoebill Stork</option>
+                        <option value="Tree-Climbing Lion">Tree-Climbing Lion</option>
+                        <option value="Ugandan Kob">Ugandan Kob</option>
+                        <option value="Other">Other (Specify in Notes)</option>
+                    </select>
+
+                    <label for="park">Location (National Park)*</label>
+                    <input type="text" id="park" name="parkName" required list="park-list">
+                    <datalist id="park-list">
+                        <option value="Bwindi Impenetrable NP">
+                        <option value="Queen Elizabeth NP">
+                        <option value="Murchison Falls NP">
+                        <option value="Kibale National Park">
+                    </datalist>
+
+                    <label for="date">Date of Sighting*</label>
+                    <input type="date" id="date" name="sightingDate" required>
+                    
+                    <label for="notes">Notes/Description</label>
+                    <textarea id="notes" name="sightingNotes"></textarea>
+
+                </fieldset>
+
+                <button type="submit">Submit Sighting</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Uganda Wildlife Atlas &copy; <span id="year"></span> | <a href="attributions.html">Sources</a></p>
+        <p>Video Demo: <a href="YOUR_YOUTUBE_LINK_HERE" target="_blank">W06 Project Video</a></p>
+        <p>Castro Oriba | WDD 231</p>
+    </footer>
+
+    <script src="scripts/main.js" defer></script> 
+</body>
+</html>
